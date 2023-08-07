@@ -7,6 +7,7 @@ import MediaItem from "../MediaItem/MediaItem";
 import useAuthModal from "@/hooks/useAuthModal/useAuthModal";
 import { useUser } from "@/hooks/useUser/useUser";
 import useUploadModal from "@/hooks/useUploadModal/useUploadModal";
+import useOnPlay from "@/hooks/useOnPlay/useOnPlay";
 
 type LibraryProps = {
     songs: Song[];
@@ -16,6 +17,7 @@ export default function Library({ songs }: LibraryProps) {
     const authModal = useAuthModal();
     const uploadModal = useUploadModal();
     const { user } = useUser();
+    const onPlay = useOnPlay(songs);
 
     const onClick = () => {
         if (!user) {
@@ -45,7 +47,7 @@ export default function Library({ songs }: LibraryProps) {
                         <MediaItem
                             key={data.id}
                             data={data}
-                            onClick={() => {}}
+                            onClick={(id: string) => onPlay(id)}
                         />
                     );
                 })}
