@@ -10,6 +10,7 @@ import ModalProvider from "@/providers/ModalProvider";
 import ToasterProvider from "@/providers/ToasterProvider";
 
 import getSongsByUserId from "@/actions/getSongsByUserId.";
+import Error from "./(site)/error";
 
 const font = Figtree({ subsets: ["latin"] });
 
